@@ -230,9 +230,9 @@ a{
     color: #f9ca31;
 }
 .progress-line{
-    position: relative;
-    height: 5px;
-    width:100%;
+    position: fixed;
+    height: 6px;
+    width:80%;
     background-color: #1d1d1d;
     border-radius: 10px;
     box-shadow: inset 0px 1px 1px rgba(0,0,0,0.05),
@@ -245,13 +245,16 @@ a{
     border-radius: 10px;
 }
 .progress-line.html span{
-    width:90%;
+    width:60%;
 }
 .progress-line.css span{
-    width:85%;
+    width:45%;
 }
 .progress-line.js span{
-    width:80%;
+    width:75%;
+}
+.progress-line.c span{
+    width:60%;
 }
 .progress-line span::before{
     position: absolute;
@@ -277,13 +280,16 @@ a{
     border-radius: 3px;
 }
 .progress-line.html span::after{
-    content:'90%';
+    content:'60%';
 }
 .progress-line.css span::after{
-    content:'85%';
+    content:'45%';
 }
 .progress-line.js span::after{
-    content:'80%';
+    content:'75%';
+}
+.progress-line.c span::after{
+    content:'55%';
 }
 .skill-img{
     width:600px;
