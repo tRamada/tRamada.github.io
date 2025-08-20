@@ -1,0 +1,27 @@
+
+
+nav {
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 1rem;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: var(--font-family);
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: var(--transition-color);
+}
