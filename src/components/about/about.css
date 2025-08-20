@@ -1,0 +1,92 @@
+/* About section */
+#about h2 {
+  font-size: clamp(1.8rem, 1.2rem + 1.6vw, 2.4rem);
+  margin: 0 0 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+#about h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 68%;
+  height: 4px;
+  background: linear-gradient(90deg,var(--accent-color), transparent 85%);
+  border-radius: 3px;
+  filter: drop-shadow(0 0 6px rgba(var(--accent-color-rgb) /.6));
+}
+
+#about p {
+  max-width: 720px;
+  line-height: 1.65;
+  color: var(--text-dim);
+  margin: 0;
+  font-size: clamp(.95rem, .9rem + .25vw, 1.05rem);
+}
+
+.about-grid {
+  display: grid;
+  gap: 2.2rem;
+  grid-template-columns: minmax(0,1fr) minmax(0,420px);
+  align-items: start;
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+.about-blurb p + p { margin-top: 1.1rem; }
+
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.stats li {
+  position: relative;
+  padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid rgba(var(--border-color));
+  background: linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  transition: border-color .55s ease, transform .55s var(--ease-spring), box-shadow .6s;
+}
+
+.stats li::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 25% 20%, rgba(var(--accent-color-rgb)/.35), transparent 65%);
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+.stats li:hover { transform: translateY(-6px); border-color: rgba(var(--border-color-hover)); box-shadow: var(--shadow-sm); }
+.stats li:hover::before { opacity: .9; }
+
+.stats .num {
+  font-size: 1.7rem;
+  font-weight: 700;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: .5px;
+}
+
+.stats .label {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: var(--text-dim);
+}

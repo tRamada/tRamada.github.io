@@ -1,0 +1,79 @@
+/* Experience timeline */
+#experience h2 {
+  font-size: clamp(1.8rem, 1.2rem + 1.6vw, 2.4rem);
+  margin: 0 0 1.5rem;
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 1.4rem;
+  max-width: 820px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 18px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(var(--accent-color), transparent);
+  opacity: .5;
+}
+
+.timeline .item {
+  position: relative;
+  padding: .65rem .85rem .9rem 3.2rem;
+  border: 1px solid rgba(var(--border-color));
+  background: linear-gradient(rgba(255,255,255,.05), rgba(255,255,255,.02));
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow: hidden;
+  transition: border-color .55s ease, transform .55s var(--ease-spring), box-shadow .6s;
+}
+
+.timeline .item::before {
+  content: '';
+  position: absolute;
+  left: 10px; top: 16px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,var(--accent-color), var(--accent-alt));
+  box-shadow: 0 0 0 4px rgba(var(--accent-color-rgb)/.25), 0 0 0 8px rgba(var(--accent-color-rgb)/.12);
+}
+
+.timeline .item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--border-color-hover));
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline .year {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-alt);
+  display: inline-block;
+  margin-bottom: .35rem;
+}
+
+.timeline h3 {
+  margin: 0 0 .4rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.timeline h3 small {
+  font-weight: 400;
+  font-size: .75rem;
+  color: var(--text-dim);
+}
+
+.timeline p {
+  margin: 0;
+  font-size: .85rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
