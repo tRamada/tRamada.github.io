@@ -100,6 +100,11 @@
   box-shadow: var(--shadow-sm);
 }
 
+.social a img {
+  width: 30px; height: 30px;
+  transition: filter .55s ease;
+}
+
 .scroll-hint {
   position: absolute;
   bottom: 40px;

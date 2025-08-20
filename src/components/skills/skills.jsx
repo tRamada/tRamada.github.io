@@ -1,28 +1,34 @@
 import './skills.css'
+import jsLogo from '../../assets/logos/js.png'
+import reactLogo from '../../assets/logos/react.png'
+import nodeLogo from '../../assets/logos/node.png'
+import cssLogo from '../../assets/logos/css.png'
+import htmlLogo from '../../assets/logos/html.png'
+import gitLogo from '../../assets/logos/git.png'
+import viteLogo from '../../assets/logos/vite.png'
 
 // Grouped skills with proficiency (0-100) & category for improved layout and context
 const skillGroups = [
   {
     category: 'Frontend',
     items: [
-      { name: 'JavaScript', short: 'JS', color: '#f7df1e', level: 90 },
-      { name: 'TypeScript', short: 'TS', color: '#3178c6', level: 80 },
-      { name: 'React', short: 'R', color: '#61dafb', level: 85 },
-      { name: 'CSS3', short: 'CSS', color: '#2965f1', level: 88 },
-      { name: 'HTML5', short: 'HTML', color: '#e44d26', level: 92 }
+  { name: 'JavaScript', short: 'JS', color: '#f7df1e', level: 90, logo: jsLogo },
+  { name: 'React', short: 'R', color: '#61dafb', level: 85, logo: reactLogo },
+  { name: 'CSS3', short: 'CSS', color: '#2965f1', level: 88, logo: cssLogo },
+  { name: 'HTML5', short: 'HTML', color: '#e44d26', level: 92, logo: htmlLogo }
     ]
   },
   {
     category: 'Backend & Runtime',
     items: [
-      { name: 'Node.js', short: 'N', color: '#83cd29', level: 75 },
-      { name: 'Git', short: 'GIT', color: '#f14e32', level: 82 }
+  { name: 'Node.js', short: 'N', color: '#83cd29', level: 75, logo: nodeLogo },
+  { name: 'Git', short: 'GIT', color: '#f14e32', level: 82, logo: gitLogo }
     ]
   },
   {
     category: 'Tooling',
     items: [
-      { name: 'Vite', short: 'V', color: '#ffd62e', level: 70 }
+  { name: 'Vite', short: 'V', color: '#ffd62e', level: 70, logo: viteLogo }
     ]
   }
 ]
@@ -53,7 +59,7 @@ function Skills() {
                   title={`${s.name} – ${levelLabel(s.level)} (${s.level}%)`}
                 >
                   <span className="logo" aria-hidden="true">
-                    <span className="abbr">{s.short}</span>
+                    {s.logo ? <img src={s.logo} alt="" loading="lazy" /> : <span className="abbr">{s.short}</span>}
                   </span>
                   <span className="meta">
                     <span className="name">{s.name}</span>

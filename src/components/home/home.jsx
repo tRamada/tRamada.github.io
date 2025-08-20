@@ -12,8 +12,8 @@ function Home() {
           <a href="#contact" className="btn ghost">Contact</a>
         </div>
         <ul className="social">
-          <li><a href="https://github.com/tRamada" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a></li>
-          <li><a href="https://www.linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">IN</a></li>
+          <li><a href="https://github.com/tRamada" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><img src="https://github.com/favicon.ico" alt="GitHub" /></a></li>
+          <li><a href="https://www.linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img src="https://www.linkedin.com/favicon.ico" alt="LinkedIn" /></a></li>
         </ul>
         <div className="scroll-hint" aria-hidden="true"><span />Scroll</div>
       </div>
