@@ -11,11 +11,11 @@ function About() {
         </div>
         <ul className="stats">
           <li>
-            <span className="num">2+</span>
+            <span className="num">5+</span>
             <span className="label">Years Learning & Building</span>
           </li>
           <li>
-            <span className="num">15+</span>
+            <span className="num">10+</span>
             <span className="label">Personal Projects</span>
           </li>
           <li>
