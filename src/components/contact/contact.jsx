@@ -71,13 +71,6 @@ function Contact() {
             <span className="pill-label">LinkedIn</span>
             <span className="pill-edge" aria-hidden="true" />
           </a>
-          <a data-reveal className="contact-pill" href="/cv.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download CV">
-            <span className="pill-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v14"/><path d="m6 11 6 6 6-6"/><path d="M4 21h16"/></svg>
-            </span>
-            <span className="pill-label">CV</span>
-            <span className="pill-edge" aria-hidden="true" />
-          </a>
         </div>
       </div>
   <div className="sr-only" aria-live="polite">{copied ? 'Email copied to clipboard' : ''}</div>

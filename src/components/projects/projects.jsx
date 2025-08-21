@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react'
 import './projects.css'
-import PasswordGenImg from '../../assets/projects/placeholder-password-generator.svg';
-import ToolboxImg from '../../assets/projects/placeholder-dashboard.svg';
-import MoveToOUImg from '../../assets/projects/placeholder-tasktracker.svg';
-import AutoPackImg from '../../assets/projects/placeholder-portfolio.svg';
+import PasswordGenImg from '../../assets/projects/placeholder-passwordgenerator.png';
+import ToolboxImg from '../../assets/projects/placeholder-toolbox.png';
+import MoveToOUImg from '../../assets/projects/placeholder-movetoou.png';
+import AutoPackImg from '../../assets/projects/placeholder-autopack.png';
 
 // Extended project metadata for richer presentation
 const projects = [
@@ -34,7 +34,7 @@ const projects = [
     blurb: 'Automate the User/Users move between OU path from Active Directory (Windows Server)',
     stack: ['PowerShell'],
     tags: ['productivity','automation', 'backend'],
-    repo: '#',
+    repo: 'https://github.com/tRamada/Move-To-OU',
     demo: '#',
     year: 2022,
     image: MoveToOUImg,
@@ -103,10 +103,16 @@ function Projects() {
               </div>
             </header>
             <p className="blurb">{p.blurb}</p>
-            <div className="actions">
-              <a href={p.demo} className="mini-btn" aria-label={'Demo for ' + p.title}>Demo</a>{' '}
-              <a href={p.repo} className="mini-btn outline" aria-label={'Repo for ' + p.title}>Code</a>
-            </div>
+            {((p.demo && p.demo !== '#' && p.demo.trim() !== '') || (p.repo && p.repo !== '#' && p.repo.trim() !== '')) && (
+              <div className="actions">
+                {p.demo && p.demo !== '#' && p.demo.trim() !== '' && (
+                  <a href={p.demo} className="mini-btn" aria-label={'Demo for ' + p.title} target='_blank'>Demo</a>
+                )}
+                {p.repo && p.repo !== '#' && p.repo.trim() !== '' && (
+                  <a href={p.repo} className="mini-btn outline" aria-label={'Repo for ' + p.title} target='_blank'>Code</a>
+                )}
+              </div>
+            )}
           </article>
         ))}
         {filtered.length === 0 && (
