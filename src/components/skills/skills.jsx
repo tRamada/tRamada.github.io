@@ -13,9 +13,9 @@ const skillGroups = [
     category: 'Frontend',
     items: [
   { name: 'JavaScript', short: 'JS', color: '#f7df1e', level: 90, logo: jsLogo },
-  { name: 'React', short: 'R', color: '#61dafb', level: 85, logo: reactLogo },
-  { name: 'CSS3', short: 'CSS', color: '#2965f1', level: 88, logo: cssLogo },
-  { name: 'HTML5', short: 'HTML', color: '#e44d26', level: 92, logo: htmlLogo }
+  { name: 'React', short: 'R', color: '#61dafb', level: 65, logo: reactLogo },
+  { name: 'CSS3', short: 'CSS', color: '#2965f1', level: 80, logo: cssLogo },
+  { name: 'HTML5', short: 'HTML', color: '#e44d26', level: 90, logo: htmlLogo }
     ]
   },
   {
@@ -28,7 +28,7 @@ const skillGroups = [
   {
     category: 'Tooling',
     items: [
-  { name: 'Vite', short: 'V', color: '#ffd62e', level: 70, logo: viteLogo }
+  { name: 'Vite', short: 'V', color: '#ffd62e', level: 60, logo: viteLogo }
     ]
   }
 ]

@@ -4,40 +4,40 @@ import './projects.css'
 // Extended project metadata for richer presentation
 const projects = [
   {
-    title: 'Portfolio Platform',
-    blurb: 'Reusable component system + dark/light theming.',
-    stack: ['React','Design Tokens','CSS'],
+    title: 'Password Generator',
+    blurb: 'Generate strong passwords with ease.',
+    stack: ['HTML','JavaScript','CSS'],
     tags: ['frontend','ui'],
-    repo: '#',
-    demo: '#',
-    year: 2024
-  },
-  {
-    title: 'Realtime Chat App',
-    blurb: 'Typing indicators, presence & secure auth.',
-    stack: ['WebSockets','Auth','Node'],
-    tags: ['realtime','backend','fullstack'],
-    repo: '#',
-    demo: '#',
-    year: 2024
-  },
-  {
-    title: 'Task Tracker',
-    blurb: 'Drag & drop kanban with persistence.',
-    stack: ['React DnD','State Mgmt'],
-    tags: ['productivity','frontend'],
-    repo: '#',
+    repo: 'https://github.com/tRamada/PG-Website',
     demo: '#',
     year: 2023
   },
   {
-    title: 'Metrics Dashboard',
-    blurb: 'Cached API aggregation & charts.',
-    stack: ['APIs','Charts','Perf'],
-    tags: ['data','frontend'],
+    title: 'Mutega Toolbox',
+    blurb: 'Toolbox for managing/accessing Mutega tools all in one place.',
+    stack: ['React','Node', 'Express', 'JavaScript'],
+    tags: ['frontend','fullstack'],
+    repo: '#',
+    demo: 'https://toolbox.mutega.se',
+    year: 2025
+  },
+  {
+    title: 'Move-To-OU',
+    blurb: 'Automate the User/Users move between OU path from Active Directory (Windows Server)',
+    stack: ['PowerShell'],
+    tags: ['productivity','automation', 'backend'],
     repo: '#',
     demo: '#',
-    year: 2023
+    year: 2022
+  },
+  {
+    title: 'AutoPack',
+    blurb: 'Online solution designed to streamline the packaging of Windows Classic applications for Microsoft Intune.',
+    stack: ['Node', 'Express', 'JavaScript'],
+    tags: ['packaging', 'windows', 'intune', 'automation', 'fullstack'],
+    repo: '#',
+    demo: 'https://autopack.mutega.se',
+    year: 2024
   }
 ]
 
