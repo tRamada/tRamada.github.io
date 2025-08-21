@@ -59,3 +59,12 @@
   .exp-card .period { font-size: .58rem; }
   .exp-card { padding: .8rem .85rem .9rem; }
 }
+
+@media (max-width: 340px){
+  .exp-item .exp-card { margin-left: 60px; }
+  .exp-card h3 { font-size: .9rem; }
+  .exp-card .desc { font-size: .7rem; }
+  .exp-card { padding: .75rem .75rem .8rem; }
+  .exp-card .tags { gap: .3rem; }
+  .exp-card .tags li { font-size: .46rem; padding: .25rem .4rem .3rem; letter-spacing: .8px; }
+}

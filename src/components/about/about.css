@@ -61,6 +61,34 @@
   transition: border-color .55s ease, transform .55s var(--ease-spring), box-shadow .6s;
 }
 
+/* Responsive refinements */
+@media (max-width: 640px){
+  #about p { font-size: .9rem; }
+  .about-grid { gap: 1.6rem; }
+  .stats { grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); }
+  .stats li { padding: .85rem .9rem .95rem; gap: .3rem; }
+  .stats .num { font-size: 1.45rem; }
+}
+
+@media (max-width: 440px){
+  #about h2 { font-size: 1.85rem; }
+  .stats { gap: .75rem; }
+  .stats li { padding: .75rem .8rem .85rem; }
+  .stats .num { font-size: 1.35rem; }
+  #about p { font-size: .85rem; }
+}
+
+@media (max-width: 360px){
+  .stats { grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); }
+  .stats .num { font-size: 1.25rem; }
+  .stats .label { font-size: .58rem; }
+}
+
+@media (max-width: 340px){
+  .stats { gap: .6rem; }
+  .stats li { padding: .65rem .7rem .75rem; }
+}
+
 .stats li::before {
   content: '';
   position: absolute;

@@ -29,6 +29,9 @@
   --ease-squish: cubic-bezier(.55,.02,.4,.9);
 }
 
+/* Global box-sizing to avoid padding causing overflow on narrow screens */
+*, *::before, *::after { box-sizing: border-box; }
+
 /* Light theme token overrides */
 html.light {
   --accent-color: #4b5dff;
@@ -77,6 +80,7 @@ body {
   background-size: 200% 200%;
   scroll-snap-type: y proximity;
   overscroll-behavior-y: none;
+  overflow-x: hidden;
 }
 
 body.is-animating-scroll {
@@ -91,7 +95,8 @@ body.is-animating-scroll {
 /* Full-screen snapping sections */
 section {
   min-height: calc(100vh - var(--nav-h, 0px));
-  width: min(100%, 1100px);
+  width: 100%;
+  max-width: 1100px; /* prevents horizontal overflow with padding */
   padding: clamp(2.5rem, 6vh, 5rem) 2rem;
   margin-inline: auto;
   position: relative;
@@ -103,6 +108,18 @@ section {
   transform: translateY(40px) scale(.98);
   transition: opacity .85s var(--ease-spring), transform .95s var(--ease-spring), filter 1s ease;
   will-change: opacity, transform;
+}
+
+@media (max-width: 640px){
+  section { padding: clamp(2rem, 5vh, 3.5rem) 1.4rem; }
+}
+
+@media (max-width: 420px){
+  section { padding: clamp(1.75rem, 5vh, 3rem) 1.15rem; }
+}
+
+@media (max-width: 360px){
+  section { padding: 1.5rem 1rem 2.3rem; }
 }
 
 section.active {

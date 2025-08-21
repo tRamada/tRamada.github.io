@@ -77,3 +77,29 @@
 @keyframes projIn { from { opacity: 0; transform: translateY(18px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
 .projects-status { font-size: .6rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: var(--text-dim); margin: -.3rem 0 1rem; }
+
+/* Responsive refinements */
+@media (max-width: 640px){
+    .project-filters button { font-size: .58rem; padding: .5rem .7rem .55rem; }
+    .cards { gap: 1.2rem; }
+    .project-card { padding: 1rem 1rem 1.1rem; }
+    .project-card h3 { font-size: .92rem; }
+    .project-card .blurb { font-size: .72rem; }
+    .project-card .stack span { font-size: .5rem; padding: .28rem .45rem .33rem; }
+    .mini-btn { font-size: .5rem; padding: .42rem .6rem .46rem; }
+}
+@media (max-width: 420px){
+    .project-filters { gap: .45rem; }
+    .project-filters button { padding: .45rem .6rem .5rem; letter-spacing: .5px; }
+    .cards { grid-template-columns: repeat(auto-fill,minmax(210px,1fr)); }
+    .project-card { gap: .75rem; }
+}
+@media (max-width: 360px){
+    .cards { grid-template-columns: repeat(auto-fill,minmax(190px,1fr)); }
+}
+@media (max-width: 350px){
+    .project-card { padding: .85rem .85rem .95rem; }
+    .project-card h3 { font-size: .85rem; }
+    .project-card .blurb { font-size: .68rem; }
+    .project-card .thumb .year { font-size: .5rem; padding: .28rem .45rem .32rem; }
+}

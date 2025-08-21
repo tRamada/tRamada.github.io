@@ -54,6 +54,35 @@
 }
 @media (max-width: 960px) { .contact-layout { grid-template-columns: 1fr; } }
 
+@media (max-width: 640px){
+  #contact p { font-size: .9rem; }
+  .contact-layout { gap: 1.6rem; }
+  .contact-form { gap: .9rem; }
+  .contact-form input, .contact-form textarea { padding: .75rem .85rem; font-size: .85rem; }
+  #contact a.button { padding: .8rem 1.3rem .85rem; font-size: .85rem; }
+  .contact-cards li { padding: .85rem .9rem .95rem; }
+  .contact-cards h3 { font-size: .72rem; }
+  .contact-cards a { font-size: .72rem; }
+}
+
+@media (max-width: 420px){
+  #contact h2 { font-size: 1.95rem; }
+  #contact p { font-size: .85rem; }
+  .contact-cards { gap: .75rem; }
+  .contact-cards li { padding: .75rem .8rem .85rem; }
+  #contact a.button { padding: .72rem 1.15rem .77rem; font-size: .8rem; }
+}
+
+@media (max-width: 350px){
+  #contact h2 { font-size: 1.8rem; }
+  #contact a.button { font-size: .75rem; padding: .65rem 1rem .7rem; }
+}
+@media (max-width: 320px){
+  .contact-cards li { padding: .65rem .7rem .7rem; }
+  #contact a.button { padding: .6rem .9rem .65rem; }
+  .contact-form input, .contact-form textarea { padding: .65rem .75rem; font-size: .8rem; }
+}
+
 .contact-form {
   display: grid;
   gap: 1.1rem;

@@ -53,3 +53,16 @@
 @media (max-width: 370px){
   .skills-grid .logo { --size: 36px; }
 }
+
+@media (max-width: 340px){
+  .skills-grid { grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap: .75rem; }
+  .skills-grid .skill { padding: .7rem .75rem .7rem .7rem; }
+  .skills-grid .name { font-size: .72rem; }
+  .level-label { font-size: .55rem; }
+}
+@media (max-width: 320px){
+  .skills-grid { grid-template-columns: repeat(auto-fit,minmax(110px,1fr)); }
+  .skills-grid .logo { --size: 34px; }
+  .skills-grid .skill { padding: .6rem .65rem .6rem .6rem; }
+  .skills-grid .name { font-size: .68rem; }
+}
