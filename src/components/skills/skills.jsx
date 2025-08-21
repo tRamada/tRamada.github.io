@@ -63,9 +63,7 @@ function Skills() {
                   </span>
                   <span className="meta">
                     <span className="name">{s.name}</span>
-                    <span className="meter" aria-hidden="true">
-                      <span className="fill" />
-                    </span>
+                    <span className="level-label" aria-hidden="true">{levelLabel(s.level)}</span>
                   </span>
                 </li>
               ))}

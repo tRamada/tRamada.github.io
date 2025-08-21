@@ -1,5 +1,9 @@
 import { useState, useMemo } from 'react'
 import './projects.css'
+import PasswordGenImg from '../../assets/projects/placeholder-password-generator.svg';
+import ToolboxImg from '../../assets/projects/placeholder-dashboard.svg';
+import MoveToOUImg from '../../assets/projects/placeholder-tasktracker.svg';
+import AutoPackImg from '../../assets/projects/placeholder-portfolio.svg';
 
 // Extended project metadata for richer presentation
 const projects = [
@@ -10,7 +14,9 @@ const projects = [
     tags: ['frontend','ui'],
     repo: 'https://github.com/tRamada/PG-Website',
     demo: '#',
-    year: 2023
+    year: 2023,
+    image: PasswordGenImg,
+    alt: 'Password generator interface mock with generated field and options',
   },
   {
     title: 'Mutega Toolbox',
@@ -19,7 +25,9 @@ const projects = [
     tags: ['frontend','fullstack'],
     repo: '#',
     demo: 'https://toolbox.mutega.se',
-    year: 2025
+    year: 2025,
+    image: ToolboxImg,
+    alt: 'Stylized toolbox dashboard illustration',
   },
   {
     title: 'Move-To-OU',
@@ -28,7 +36,9 @@ const projects = [
     tags: ['productivity','automation', 'backend'],
     repo: '#',
     demo: '#',
-    year: 2022
+    year: 2022,
+    image: MoveToOUImg,
+    alt: 'Task style illustration representing automated movement',
   },
   {
     title: 'AutoPack',
@@ -37,7 +47,9 @@ const projects = [
     tags: ['packaging', 'windows', 'intune', 'automation', 'fullstack'],
     repo: '#',
     demo: 'https://autopack.mutega.se',
-    year: 2024
+    year: 2024,
+    image: AutoPackImg,
+    alt: 'Portfolio style gradient illustration representing packaging workflow',
   }
 ]
 
@@ -71,8 +83,17 @@ function Projects() {
       <div className="cards animated-list">
         {filtered.map(p => (
           <article key={p.title} className="project-card" data-tags={p.tags.join(' ')}>
-            <div className="thumb" aria-hidden="true">
-              <div className="spark" />
+            <div className="thumb">
+              {p.image && (
+                <img
+                  src={p.image}
+                  alt={p.alt || ''}
+                  loading="lazy"
+                  decoding="async"
+                  width={320}
+                  height={180}
+                />
+              )}
               <span className="year">{p.year}</span>
             </div>
             <header>

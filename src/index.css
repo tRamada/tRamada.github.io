@@ -29,6 +29,36 @@
   --ease-squish: cubic-bezier(.55,.02,.4,.9);
 }
 
+/* Light theme token overrides */
+html.light {
+  --accent-color: #4b5dff;
+  --accent-color-rgb: 75 93 255;
+  --accent-alt: #7da5ff;
+  --text-color: #1f2430;
+  --text-dim: #5a6475;
+  --navbar-text-color: #3d4654;
+  --surface-0: #ffffff;
+  --surface-1: #f5f7fb;
+  --surface-2: #e9eef5;
+  --surface-glass: 255 255 255;
+  --border-color: 0 0 0 / 10%;
+  --border-color-hover: 0 0 0 / 22%;
+  --bg-start: #f5f8ff;
+  --bg-end: #dce5f5;
+  --gradient-accent: linear-gradient(90deg,var(--accent-color), var(--accent-alt));
+  --shadow-sm: 0 4px 10px -4px rgb(75 93 255 / 25%);
+  --shadow-glow: 0 0 0 1px rgb(75 93 255 / 25%), 0 4px 14px -4px rgb(75 93 255 / 40%), 0 0 22px -6px rgb(75 93 255 / 55%);
+}
+
+/* Auto respect system preference on first load (JS will set class) */
+@media (prefers-color-scheme: light) {
+  :root:not(.dark):not(.light) body { background: radial-gradient(circle at 15% 20%, var(--bg-start), var(--bg-end)); }
+}
+
+html.theme-transition *, html.theme-transition *::before, html.theme-transition *::after {
+  transition: background-color .5s ease, color .5s ease, border-color .5s ease, box-shadow .6s ease, fill .5s ease, stroke .5s ease;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-h, 0px);
