@@ -1,0 +1,55 @@
+/* Skills */
+#skills h2 {
+  font-size: clamp(1.8rem, 1.2rem + 1.6vw, 2.4rem);
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+/* Group wrapper */
+.skills-groups { display: flex; flex-direction: column; gap: 2.2rem; }
+
+.skill-group { position: relative; }
+.skill-group::before { content: ''; position: absolute; left: .35rem; top: .55rem; bottom: .55rem; width: 2px; background: linear-gradient(var(--accent-color),transparent); opacity: .2; pointer-events: none; }
+
+.group-title { margin: 0 0 1rem 0; font-size: 1rem; font-weight: 600; letter-spacing: .5px; display: inline-flex; align-items: center; gap: .55rem; position: relative; padding-left: .85rem; }
+.group-title::before { content: ''; position: absolute; left: 0; top: 50%; translate: 0 -50%; width: .55rem; height: .55rem; border-radius: 50%; background: var(--gradient-accent); box-shadow: 0 0 0 4px rgba(var(--accent-color-rgb)/.15); }
+
+/* Grid of skills inside each group */
+.skills-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); }
+
+.skills-grid .skill { padding: .85rem .95rem .85rem .85rem; border: 1px solid rgba(var(--border-color)); border-radius: var(--radius-sm); background: linear-gradient(rgba(255,255,255,.06),rgba(255,255,255,.018)); backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%); font-weight: 500; letter-spacing: .4px; position: relative; overflow: hidden; cursor: default; display: flex; align-items: center; gap: .7rem; transition: border-color .55s ease, transform .55s var(--ease-spring), box-shadow .6s, background .55s; }
+
+/* top accent bar using skill color */
+.skills-grid .skill::after { content: ''; position: absolute; left: 0; top: 0; height: 3px; width: 100%; background: linear-gradient(90deg,var(--dot), var(--accent-alt)); opacity: .55; pointer-events: none; }
+
+.skills-grid .skill:hover { transform: translateY(-8px) scale(1.03); border-color: rgba(var(--border-color-hover)); box-shadow: var(--shadow-sm); background: linear-gradient(rgba(255,255,255,.09),rgba(255,255,255,.03)); }
+
+.skills-grid .logo { --size: 46px; width: var(--size); height: var(--size); display: grid; place-items: center; font-size: .65rem; font-weight: 700; letter-spacing: 1px; color: #111; border-radius: 14px; background: linear-gradient(135deg,color-mix(in srgb,var(--dot) 70%,#ffffff),color-mix(in srgb,var(--dot) 35%,#000)); position: relative; box-shadow: 0 3px 10px -3px color-mix(in srgb,var(--dot) 60%,#000); overflow: hidden; }
+.skills-grid .logo img { width: 68%; height: 68%; object-fit: contain; display: block; filter: drop-shadow(0 0 4px rgba(0,0,0,.25)); z-index: 2; }
+.skills-grid .logo .abbr { position: relative; z-index: 2; }
+/* circular progress ring */
+.skills-grid .logo::before { content: ''; position: absolute; inset: 0; background: conic-gradient(var(--dot) calc(var(--level) * 1%), rgba(255,255,255,.06) 0); mask: radial-gradient(circle at 50% 50%, transparent 53%, #000 54%); -webkit-mask: radial-gradient(circle at 50% 50%, transparent 53%, #000 54%); opacity: .9; }
+.skills-grid .logo::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 25%,#ffffff60,transparent 70%); mix-blend-mode: overlay; z-index: 1; }
+
+.skills-grid .meta { display: flex; flex-direction: column; gap: .4rem; flex: 1; }
+.skills-grid .name { font-size: .8rem; font-weight: 600; letter-spacing: .5px; }
+
+/* Removed legacy meter in favor of circular ring */
+.level-label { font-size: .6rem; letter-spacing: 1px; font-weight: 600; text-transform: uppercase; color: var(--text-dim); margin-top: .15rem; }
+
+.skills-intro { text-align: center; margin: 0 0 1.6rem; color: var(--text-dim); font-size: .9rem; }
+
+/* Responsive adjustments */
+@media (max-width: 640px){
+  .group-title { font-size: .95rem; }
+  .skills-grid { grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); }
+  .skills-grid .logo { --size: 40px; font-size: .55rem; }
+}
+
+@media (max-width: 430px){
+  .skills-grid .logo { --size: 38px; }
+}
+
+@media (max-width: 370px){
+  .skills-grid .logo { --size: 36px; }
+}

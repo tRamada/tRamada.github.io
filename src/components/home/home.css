@@ -1,0 +1,184 @@
+/* Hero styles */
+#home {
+  display: grid;
+  gap: 0; /* remove gap entirely */
+  text-align: center;
+  place-items: center; /* center horizontally + vertically */
+  min-height: calc(100vh - var(--nav-h, 0px)); /* full viewport minus nav */
+  padding: 0 !important; /* remove global section vertical padding */
+}
+
+.hero-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .65rem; /* introduce breathing space */
+  padding: 0 1rem; /* slight horizontal breathing */
+}
+
+.hero-text .tagline {
+  margin: .15rem 0 0;
+  font-size: clamp(1rem, .9rem + .5vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: .5px;
+  color: var(--accent-alt);
+}
+
+.hero-text .intro {
+  max-width: 760px;
+  margin: .35rem 0 1.6rem;
+  line-height: 1.55;
+  font-size: clamp(.95rem, .9rem + .3vw, 1.05rem);
+  color: var(--text-dim);
+}
+
+.hero-ctas {
+  display: flex;
+  gap: .9rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn {
+  --btn-bg: var(--accent-color);
+  --btn-bg-end: var(--accent-alt);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-decoration: none;
+  font-size: .9rem;
+  padding: .85rem 1.4rem .9rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg,var(--btn-bg),var(--btn-bg-end));
+  color: #fff;
+  box-shadow: 0 4px 14px -6px rgba(var(--accent-color-rgb)/.6);
+  transition: transform .55s var(--ease-spring), box-shadow .55s, background .6s;
+  overflow: hidden;
+}
+
+.btn.primary:hover { transform: translateY(-6px); box-shadow: var(--shadow-glow); }
+
+.btn.ghost {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-color);
+  box-shadow: none;
+  border: 1px solid rgba(var(--border-color));
+  backdrop-filter: blur(10px);
+}
+.btn.ghost:hover {
+  background: rgba(255,255,255,0.14);
+  transform: translateY(-4px);
+}
+
+.social {
+  list-style: none;
+  display: flex;
+  gap: .65rem;
+  margin: 0;
+  padding: 0;
+}
+.social a {
+  display: inline-flex;
+  width: 42px; height: 42px;
+  align-items: center; justify-content: center;
+  border-radius: 50%;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-decoration: none;
+  color: var(--text-color);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(var(--border-color));
+  backdrop-filter: blur(8px);
+  transition: transform .55s var(--ease-spring), background .55s, box-shadow .6s;
+}
+.social a:hover {
+  background: linear-gradient(135deg,var(--accent-color),var(--accent-alt));
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: var(--shadow-sm);
+}
+
+.social a img {
+  width: 30px; height: 30px;
+  transition: filter .55s ease;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .65rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: .85;
+  pointer-events: none;
+  animation: hintFade 6s linear infinite;
+}
+.scroll-hint span {
+  width: 2px; height: 18px;
+  background: var(--gradient-accent);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.scroll-hint span::before {
+  content: '';
+  position: absolute; left: 0; top: -12px; right: 0;
+  height: 8px;
+  background: #fff;
+  border-radius: 2px;
+  animation: scrollBar 2.25s ease-in-out infinite;
+  box-shadow: 0 0 6px 2px rgba(var(--accent-color-rgb)/.6);
+}
+
+@keyframes scrollBar {
+  0% { transform: translateY(0); opacity: 0; }
+  25% { opacity: 1; }
+  60% { transform: translateY(18px); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes hintFade {
+  0%,100% { opacity: .7; }
+  50% { opacity: 1; }
+}
+
+#home h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.03; /* tighter */
+  margin: 0; /* no margin */
+  letter-spacing: .5px;
+  font-weight: 700;
+}
+
+#home p {
+  max-width: 680px;
+  margin: 0; /* remove margin */
+  line-height: 1.4;
+  font-size: clamp(1rem, .9rem + .3vw, 1.08rem);
+  color: #d1d1d1;
+}
+
+#home h1 span.accent {
+  background: linear-gradient(90deg,var(--accent-color), #a29bfe 65%, #6c5ce7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

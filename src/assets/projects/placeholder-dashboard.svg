@@ -1,0 +1,15 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450' fill='none'>
+<rect width='800' height='450' rx='32' fill='url(#g4)'/>
+<defs>
+<linearGradient id='g4' x1='800' y1='450' x2='0' y2='0' gradientUnits='userSpaceOnUse'>
+<stop stop-color='#4776E6'/><stop offset='.5' stop-color='#8E54E9'/><stop offset='1' stop-color='#5f8df7'/>
+</linearGradient>
+</defs>
+<g stroke='rgba(255,255,255,0.26)' stroke-width='2'>
+<rect x='90' y='90' width='620' height='80' rx='20'/>
+<rect x='90' y='190' width='300' height='180' rx='26'/>
+<rect x='410' y='190' width='300' height='80' rx='20'/>
+<rect x='410' y='290' width='300' height='80' rx='20'/>
+</g>
+<text x='90' y='400' font-size='52' font-family='Inter,Arial,sans-serif' fill='white' font-weight='600'>Analytics Dashboard</text>
+</svg>

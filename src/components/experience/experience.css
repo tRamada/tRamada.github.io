@@ -1,0 +1,61 @@
+/* Experience revamped */
+#experience h2 { font-size: clamp(1.8rem, 1.2rem + 1.6vw, 2.4rem); margin: 0 0 1rem; }
+.experience-intro { margin: 0 0 1.6rem; max-width: 740px; font-size: .9rem; line-height: 1.6; color: var(--text-dim); }
+
+.exp-timeline { position: relative; margin: 0; padding: 0; list-style: none; display: grid; gap: 2.6rem; }
+
+/* central spine */
+.exp-timeline::before { content: ''; position: absolute; inset: 0; width: 2px; margin-inline: auto; background: linear-gradient(var(--accent-color), transparent 85%); opacity: .35; }
+
+.exp-item { position: relative; display: grid; }
+
+/* side decision: alternate left/right using nth-child */
+.exp-item .exp-card { position: relative; width: min(100%, 480px); padding: 1rem 1.2rem 1.2rem; border: 1px solid rgba(var(--border-color)); background: linear-gradient(rgba(255,255,255,.06),rgba(255,255,255,.018)); backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%); border-radius: var(--radius-md); box-shadow: 0 6px 18px -8px rgba(var(--accent-color-rgb)/.40); display: flex; flex-direction: column; gap: .55rem; overflow: hidden; transform: translateY(0); transition: transform .7s var(--ease-spring), box-shadow .6s, border-color .55s, background .6s; }
+
+/* subtle top accent bar */
+.exp-item .exp-card::after { content: ''; position: absolute; left: 0; top: 0; height: 4px; width: 100%; background: linear-gradient(90deg,var(--accent-color),var(--accent-alt)); opacity: .55; pointer-events: none; }
+
+.exp-item:nth-child(odd) .exp-card { justify-self: flex-start; margin-right: auto; }
+.exp-item:nth-child(even) .exp-card { justify-self: flex-end; margin-left: auto; }
+
+/* connector dot */
+.exp-item::before { content: ''; position: absolute; top: 0.9rem; left: 50%; translate: -50% 0; width: 18px; height: 18px; border-radius: 50%; background: linear-gradient(135deg,var(--accent-color),var(--accent-alt)); box-shadow: 0 0 0 4px rgba(var(--accent-color-rgb)/.25), 0 0 0 9px rgba(var(--accent-color-rgb)/.12); }
+
+/* connector arms removed for simpler visual; uncomment below to restore */
+/* .exp-item .exp-card::before { content: ''; position: absolute; top: 1.1rem; width: 34px; height: 2px; background: linear-gradient(90deg,var(--accent-color),var(--accent-alt)); opacity: .4; } */
+/* .exp-item:nth-child(odd) .exp-card::before { left: 100%; } */
+/* .exp-item:nth-child(even) .exp-card::before { right: 100%; } */
+
+.exp-item .exp-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: var(--shadow-sm); border-color: rgba(var(--border-color-hover)); background: linear-gradient(rgba(255,255,255,.09),rgba(255,255,255,.028)); }
+
+.exp-card .period { font-size: .65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(255,255,255,.08); padding: .35rem .55rem .4rem; border-radius: 6px; color: var(--accent-alt); display: inline-flex; align-items: center; gap: .4rem; box-shadow: 0 2px 6px -2px rgba(0 0 0 / .4); }
+.exp-card h3 { margin: 0; font-size: 1rem; font-weight: 600; letter-spacing: .4px; }
+.exp-card h3 small { font-weight: 500; font-size: .72rem; color: var(--text-dim); }
+.exp-card .desc { margin: 0; font-size: .78rem; line-height: 1.55; color: var(--text-dim); }
+.exp-card .tags { list-style: none; margin: .2rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.exp-card .tags li { font-size: .55rem; padding: .35rem .55rem .4rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; background: rgba(255,255,255,.08); border: 1px solid rgba(var(--border-color)); border-radius: 999px; }
+
+/* subtle type color tweak per type */
+/* Unified color scheme: remove distinct gradients per type for a cleaner look */
+
+/* Responsive collapse: single column */
+@media (max-width: 840px){
+  .exp-timeline::before { left: 30px; right: auto; margin: 0; }
+  .exp-item::before { left: 30px; translate: 0 0; }
+  .exp-item .exp-card, .exp-item:nth-child(even) .exp-card, .exp-item:nth-child(odd) .exp-card { margin: 0 0 0 70px; justify-self: stretch; width: auto; }
+  .exp-item .exp-card::before { display: none; }
+  .exp-timeline { gap: 1.8rem; }
+}
+
+@media (max-width: 560px){
+  .exp-card h3 { font-size: .95rem; }
+  .exp-card .desc { font-size: .74rem; }
+  .exp-card { padding: .9rem 1rem 1rem; }
+  .exp-card .tags li { font-size: .5rem; padding: .3rem .5rem .35rem; }
+}
+
+@media (max-width: 400px){
+  .exp-item::before { width: 14px; height: 14px; top: .85rem; }
+  .exp-card .period { font-size: .58rem; }
+  .exp-card { padding: .8rem .85rem .9rem; }
+}
