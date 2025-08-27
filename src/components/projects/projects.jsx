@@ -4,6 +4,7 @@ import PasswordGenImg from '../../assets/projects/placeholder-passwordgenerator.
 import ToolboxImg from '../../assets/projects/placeholder-toolbox.png';
 import MoveToOUImg from '../../assets/projects/placeholder-movetoou.png';
 import AutoPackImg from '../../assets/projects/placeholder-autopack.png';
+import AllInOneImg from '../../assets/projects/placeholder-allinone.png';
 
 // Extended project metadata for richer presentation
 const projects = [
@@ -50,6 +51,17 @@ const projects = [
     year: 2024,
     image: AutoPackImg,
     alt: 'Portfolio style gradient illustration representing packaging workflow',
+  },
+  {
+    title: 'All in One',
+    blurb: 'Web-based tool for downloading your favorite content from various platforms.',
+    stack: ['HTML','JavaScript','CSS'],
+    tags: ['tool', 'download'],
+    repo: 'https://github.com/tRamada/all_in_one',
+    demo: '#',
+    year: 2024,
+    image: AllInOneImg,
+    alt: 'All in One interface mock with download options',
   }
 ]
 
