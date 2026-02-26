@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: stretch;
   width: 100%;
-  gap: 2rem;
+  gap: var(--section-gap);
 }
 
 /* Section animation handled globally in index.css */

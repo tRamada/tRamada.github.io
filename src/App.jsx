@@ -25,29 +25,13 @@ function App() {
 
     let suppressActive = false
 
-    const setActive = (index) => {
+    const setActiveNav = (index) => {
       if (suppressActive) return
       if (index === activeIndex || index < 0 || index >= sections.length) return
-      const prev = sections[activeIndex]
       const next = sections[index]
-      if (prev) {
-        prev.classList.remove('active')
-        prev.classList.add('fading-out')
-        // remove fade-out class after transition
-        setTimeout(() => prev.classList.remove('fading-out'), 700)
-      }
-      if (next) {
-        next.classList.add('active')
-        // stagger list items if animated list present
-        next.querySelectorAll('ul.animated-list').forEach(list => {
-          Array.from(list.children).forEach((li, idx) => {
-            li.style.animationDelay = (0.05 + idx * 0.07) + 's'
-            li.classList.add('anim-start')
-          })
-        })
-      }
+      if (!next) return
       activeIndex = index
-      // update active nav link
+
       const links = document.querySelectorAll('nav a')
       links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + next.id))
     }
@@ -63,7 +47,7 @@ function App() {
         const dist = Math.abs(mid - viewportMid)
         if (dist < bestDist) { bestDist = dist; bestIndex = i }
       })
-      setActive(bestIndex)
+      setActiveNav(bestIndex)
       // update scroll progress variable
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight
       const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0
@@ -81,8 +65,34 @@ function App() {
     // Initial
     pickSection()
 
-    // Custom smooth anchor scrolling with easing & highlight
+    // Mark sections as visible for list animations (do not hide previous sections)
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    let visibilityObserver = null
+    if (prefersReduced) {
+      sections.forEach(s => s.classList.add('is-visible'))
+    } else {
+      document.body.classList.add('js-anim')
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(ent => {
+          if (!ent.isIntersecting) return
+          const target = ent.target
+          target.classList.add('is-visible')
+
+          target.querySelectorAll('ul.animated-list').forEach(list => {
+            Array.from(list.children).forEach((li, idx) => {
+              li.style.animationDelay = (0.05 + idx * 0.07) + 's'
+            })
+          })
+
+          io.unobserve(target)
+        })
+      }, { threshold: 0.25, rootMargin: '120px 0px -10% 0px' })
+
+      visibilityObserver = io
+      sections.forEach(s => io.observe(s))
+    }
+
+    // Custom smooth anchor scrolling with easing & highlight
     const links = Array.from(document.querySelectorAll('a[href^="#"]'))
     const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
     let activeAnim = null
@@ -162,6 +172,8 @@ function App() {
       window.removeEventListener('scroll', onScroll)
       links.forEach(l => l.removeEventListener('click', onAnchorClick))
       aborters.forEach(evt => window.removeEventListener(evt, abort))
+      if (visibilityObserver) visibilityObserver.disconnect()
+      document.body.classList.remove('js-anim')
     }
   }, [])
 

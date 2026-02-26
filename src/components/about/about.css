@@ -13,9 +13,8 @@
   bottom: -8px;
   width: 68%;
   height: 4px;
-  background: linear-gradient(90deg,var(--accent-color), transparent 85%);
+  background: var(--accent-color);
   border-radius: 3px;
-  filter: drop-shadow(0 0 6px rgba(var(--accent-color-rgb) /.6));
 }
 
 #about p {
@@ -52,7 +51,7 @@
   position: relative;
   padding: 1rem 1.1rem 1.15rem;
   border: 1px solid rgba(var(--border-color));
-  background: linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  background: var(--surface-1);
   border-radius: var(--radius-sm);
   overflow: hidden;
   display: flex;
@@ -89,26 +88,16 @@
   .stats li { padding: .65rem .7rem .75rem; }
 }
 
-.stats li::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 25% 20%, rgba(var(--accent-color-rgb)/.35), transparent 65%);
-  opacity: 0;
-  transition: opacity .6s ease;
-}
+.stats li::before { content: none; }
 
-.stats li:hover { transform: translateY(-6px); border-color: rgba(var(--border-color-hover)); box-shadow: var(--shadow-sm); }
-.stats li:hover::before { opacity: .9; }
+.stats li:hover { transform: translateY(-2px); border-color: rgba(var(--border-color-hover)); box-shadow: var(--shadow-sm); }
 
 .stats .num {
   font-size: 1.7rem;
   font-weight: 700;
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--accent-color);
   letter-spacing: .5px;
+  font-family: var(--font-mono);
 }
 
 .stats .label {

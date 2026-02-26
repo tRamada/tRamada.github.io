@@ -1,30 +1,51 @@
 :root {
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-family: var(--font-sans);
-  --accent-color: #755bff;
-  --accent-color-rgb: 117 91 255;
-  --accent-glow: 117 91 255 / 65%;
-  --accent-alt: #a29bfe;
-  --text-color: #f5f7fa;
-  --text-dim: #b5bcc9;
-  --navbar-text-color: #c8cfe0;
-  --transition-color: #ffffff;
-  --surface-0: #0f1115;
-  --surface-1: #161a21;
-  --surface-2: #1d232c;
-  --surface-glass: 16 20 28;
-  --border-color: 255 255 255 / 8%;
-  --border-color-hover: 255 255 255 / 20%;
-  --bg-start: #0d0f13;
-  --bg-end: #1e2230;
+
+  /* Core theme tokens (minimal premium, cool) */
+  --accent-color: #22d3ee;
+  --accent-color-rgb: 34 211 238;
+  --accent-glow: 34 211 238 / 30%;
+  --accent-alt: #a78bfa;
+  --accent-alt-rgb: 167 139 250;
+
+  --text-color: #f5f7ff;
+  --text-dim: #b6bfd6;
+  --text: var(--text-color);
+  --text-strong: var(--text-color);
+  --navbar-text-color: #c9d2ea;
+  --transition-color: var(--text-color);
+
+  --surface-0: #070a12;
+  --surface-1: #0c1222;
+  --surface-2: #111a33;
+  --surface-glass: 12 18 34;
+  --surface-hue: 220;
+
+  /* Aliases used by some section styles */
+  --accent1: var(--accent-color);
+  --accent2: var(--accent-alt);
+  --ease-out: cubic-bezier(.2,.9,.2,1);
+
+  --border-color: 255 255 255 / 10%;
+  --border-color-hover: 255 255 255 / 18%;
+  --bg-start: #070a12;
+  --bg-end: #070a12;
   --gradient-accent: linear-gradient(90deg,var(--accent-color), var(--accent-alt));
+
+  /* Layout */
+  --container: 1100px;
+  --section-x: clamp(1.1rem, 3.2vw, 2rem);
+  --section-y: clamp(2.75rem, 6vh, 4.75rem);
+  --section-gap: clamp(1.75rem, 4vh, 3.25rem);
+
   --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --shadow-sm: 0 4px 10px -4px rgb(var(--accent-color-rgb) / 35%);
-  --shadow-glow: 0 0 0 1px rgb(var(--accent-color-rgb) / 35%), 0 4px 14px -4px rgb(var(--accent-color-rgb) / 55%), 0 0 22px -6px rgb(var(--accent-color-rgb) / 75%);
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --shadow-sm: 0 16px 40px -28px rgb(0 0 0 / 65%);
+  --shadow-glow: 0 0 0 1px rgb(var(--accent-color-rgb) / 16%), 0 24px 70px -50px rgb(var(--accent-color-rgb) / 35%);
   --ease-spring: cubic-bezier(.16,.84,.44,1);
   --ease-squish: cubic-bezier(.55,.02,.4,.9);
 }
@@ -32,35 +53,7 @@
 /* Global box-sizing to avoid padding causing overflow on narrow screens */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Light theme token overrides */
-html.light {
-  --accent-color: #4b5dff;
-  --accent-color-rgb: 75 93 255;
-  --accent-alt: #7da5ff;
-  --text-color: #1f2430;
-  --text-dim: #5a6475;
-  --navbar-text-color: #3d4654;
-  --surface-0: #ffffff;
-  --surface-1: #f5f7fb;
-  --surface-2: #e9eef5;
-  --surface-glass: 255 255 255;
-  --border-color: 0 0 0 / 10%;
-  --border-color-hover: 0 0 0 / 22%;
-  --bg-start: #f5f8ff;
-  --bg-end: #dce5f5;
-  --gradient-accent: linear-gradient(90deg,var(--accent-color), var(--accent-alt));
-  --shadow-sm: 0 4px 10px -4px rgb(75 93 255 / 25%);
-  --shadow-glow: 0 0 0 1px rgb(75 93 255 / 25%), 0 4px 14px -4px rgb(75 93 255 / 40%), 0 0 22px -6px rgb(75 93 255 / 55%);
-}
-
-/* Auto respect system preference on first load (JS will set class) */
-@media (prefers-color-scheme: light) {
-  :root:not(.dark):not(.light) body { background: radial-gradient(circle at 15% 20%, var(--bg-start), var(--bg-end)); }
-}
-
-html.theme-transition *, html.theme-transition *::before, html.theme-transition *::after {
-  transition: background-color .5s ease, color .5s ease, border-color .5s ease, box-shadow .6s ease, fill .5s ease, stroke .5s ease;
-}
+/* Light theme removed (dark-only UI) */
 
 html {
   scroll-behavior: smooth;
@@ -72,13 +65,17 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-family);
-  background: radial-gradient(circle at 15% 20%, var(--bg-start), var(--bg-end));
+  background-color: var(--surface-0);
+  background-image:
+    radial-gradient(circle at 18% 16%, rgb(var(--accent-alt-rgb) / .14), transparent 42%),
+    radial-gradient(circle at 78% 82%, rgb(var(--accent-color-rgb) / .10), transparent 46%);
+  background-size: auto, auto;
+  background-position: center, center;
   color: var(--text-color);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  animation: bg-pan 18s linear infinite;
-  background-size: 200% 200%;
-  scroll-snap-type: y proximity;
+  font-size: 16px;
+  line-height: 1.55;
   overscroll-behavior-y: none;
   overflow-x: hidden;
 }
@@ -88,38 +85,40 @@ body.is-animating-scroll {
 }
 
 ::selection {
-  background: var(--accent-color);
+  background: rgba(var(--accent-color-rgb) / .85);
   color: #fff;
 }
 
-/* Full-screen snapping sections */
+/* Sections (scrolly layout, hero is handled separately) */
 section {
-  min-height: calc(100vh - var(--nav-h, 0px));
+  min-height: auto;
   width: 100%;
-  max-width: 1100px; /* prevents horizontal overflow with padding */
-  padding: clamp(2.5rem, 6vh, 5rem) 2rem;
+  max-width: var(--container); /* prevents horizontal overflow with padding */
+  padding: var(--section-y) var(--section-x);
   margin-inline: auto;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  scroll-snap-align: start;
-  opacity: 0;
-  transform: translateY(40px) scale(.98);
-  transition: opacity .85s var(--ease-spring), transform .95s var(--ease-spring), filter 1s ease;
-  will-change: opacity, transform;
+  justify-content: flex-start;
+  opacity: 1;
+  transform: none;
+}
+
+/* Keep hero full-height even in scrolly layout */
+section.hero {
+  min-height: calc(100vh - var(--nav-h, 0px));
 }
 
 @media (max-width: 640px){
-  section { padding: clamp(2rem, 5vh, 3.5rem) 1.4rem; }
+  section { padding: var(--section-y) var(--section-x); }
 }
 
 @media (max-width: 420px){
-  section { padding: clamp(1.75rem, 5vh, 3rem) 1.15rem; }
+  section { padding: var(--section-y) var(--section-x); }
 }
 
 @media (max-width: 360px){
-  section { padding: 1.5rem 1rem 2.3rem; }
+  section { padding: var(--section-y) var(--section-x); }
 }
 
 section.active {
@@ -148,38 +147,14 @@ section.fading-out {
   transition: opacity .6s ease, transform .65s cubic-bezier(.55,.02,.4,.9);
 }
 
-.hero h1 span.accent {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  position: relative;
-}
+.hero h1 span.accent { color: var(--accent-color); position: relative; }
 
-.hero h1 span.accent::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 60%, rgba(var(--accent-color-rgb) /.4), transparent 70%);
-  mix-blend-mode: plus-lighter;
-  opacity: 0;
-  animation: accent-pulse 6s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes accent-pulse {
-  0%,60%,100% { opacity: .12; }
-  30% { opacity: .4; }
-}
-
-/* Fancy list animation baseline */
+/* Fancy list animation baseline (only animate when section becomes visible) */
 ul { list-style: none; padding: 0; }
-ul.animated-list > * { opacity: 0; transform: translateY(18px); animation: listIn .75s var(--ease-spring) forwards; }
-ul.animated-list > *:nth-child(1){ animation-delay: .05s; }
-ul.animated-list > *:nth-child(2){ animation-delay: .12s; }
-ul.animated-list > *:nth-child(3){ animation-delay: .19s; }
-ul.animated-list > *:nth-child(4){ animation-delay: .26s; }
-ul.animated-list > *:nth-child(5){ animation-delay: .33s; }
+ul.animated-list > * { opacity: 1; transform: none; }
+
+body.js-anim ul.animated-list > * { opacity: 0; transform: translateY(18px); }
+body.js-anim section.is-visible ul.animated-list > * { animation: listIn .75s var(--ease-spring) forwards; }
 
 @keyframes listIn { to { opacity:1; transform: translateY(0); } }
 

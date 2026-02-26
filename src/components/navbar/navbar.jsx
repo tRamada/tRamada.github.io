@@ -15,24 +15,11 @@ function Navbar() {
   const toggle = () => setOpen(o => !o)
   const handleNavClick = () => setOpen(false)
 
-  const [theme, setTheme] = useState(()=>{
-    const stored = localStorage.getItem('theme');
-    if(stored) return stored;
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    return prefersLight ? 'light' : 'dark';
-  });
-
-  useEffect(()=>{
-    const root = document.documentElement;
-    root.classList.remove('light','dark');
-    root.classList.add(theme);
-    root.classList.add('theme-transition');
-    const t = setTimeout(()=> root.classList.remove('theme-transition'), 600);
-    localStorage.setItem('theme', theme);
-    return ()=>clearTimeout(t);
-  },[theme]);
-
-  const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark');
+  useEffect(() => {
+    const root = document.documentElement
+    root.classList.remove('light')
+    root.classList.add('dark')
+  }, [])
 
   return (
     <nav data-open={open ? 'true' : 'false'}>
@@ -46,9 +33,6 @@ function Navbar() {
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme" title="Toggle theme">
-          {theme === 'dark' ? '🌞' : '🌙'}
-        </button>
         <button className="nav-toggle" aria-expanded={open} aria-label="Menu" onClick={toggle}>
           <span />
           <span />

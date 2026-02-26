@@ -12,23 +12,23 @@ const skillGroups = [
   {
     category: 'Frontend',
     items: [
-  { name: 'JavaScript', short: 'JS', color: '#f7df1e', level: 90, logo: jsLogo },
-  { name: 'React', short: 'R', color: '#61dafb', level: 65, logo: reactLogo },
-  { name: 'CSS3', short: 'CSS', color: '#2965f1', level: 80, logo: cssLogo },
-  { name: 'HTML5', short: 'HTML', color: '#e44d26', level: 90, logo: htmlLogo }
+      { name: 'JavaScript', short: 'JS', level: 90, logo: jsLogo },
+      { name: 'React', short: 'R', level: 65, logo: reactLogo },
+      { name: 'CSS3', short: 'CSS', level: 80, logo: cssLogo },
+      { name: 'HTML5', short: 'HTML', level: 90, logo: htmlLogo }
     ]
   },
   {
     category: 'Backend & Runtime',
     items: [
-  { name: 'Node.js', short: 'N', color: '#83cd29', level: 75, logo: nodeLogo },
-  { name: 'Git', short: 'GIT', color: '#f14e32', level: 82, logo: gitLogo }
+      { name: 'Node.js', short: 'N', level: 75, logo: nodeLogo },
+      { name: 'Git', short: 'GIT', level: 82, logo: gitLogo }
     ]
   },
   {
     category: 'Tooling',
     items: [
-  { name: 'Vite', short: 'V', color: '#ffd62e', level: 60, logo: viteLogo }
+      { name: 'Vite', short: 'V', level: 60, logo: viteLogo }
     ]
   }
 ]
@@ -44,18 +44,25 @@ function levelLabel(level){
 function Skills() {
   return (
     <section id="skills">
-      <h2>My Skills</h2>
-      <p className="skills-intro">Technologies, runtimes & tools. Hover for proficiency.</p>
+      <header className="skills-header">
+        <h2>My Skills</h2>
+        <p className="skills-intro">Core stack and tools I use to ship fast, accessible interfaces.</p>
+      </header>
       <div className="skills-groups">
         {skillGroups.map(group => (
-          <div className="skill-group" key={group.category}>
-            <h3 className="group-title">{group.category}</h3>
+          <div
+            className="skill-group"
+            key={group.category}
+            data-accent={group.category === 'Frontend' ? 'a' : group.category === 'Backend & Runtime' ? 'b' : 'c'}
+          >
+            <div className="group-head">
+              <h3 className="group-title">{group.category}</h3>
+            </div>
             <ul className="skills-grid animated-list">
               {group.items.map(s => (
                 <li
                   key={s.name}
                   className="skill"
-                  style={{ '--dot': s.color, '--level': s.level }}
                   title={`${s.name} – ${levelLabel(s.level)} (${s.level}%)`}
                 >
                   <span className="logo" aria-hidden="true">
