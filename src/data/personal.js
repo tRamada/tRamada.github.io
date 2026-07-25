@@ -1,7 +1,7 @@
 export const personal = {
   name: 'Tiago Ramada',
   title: 'Software Engineer',
-  headline: 'I build things for the web that are fast, accessible, and built to last.',
+  headline: 'I build full-stack web apps and automate the boring parts of IT - from clinic scheduling systems to Active Directory migration scripts.',
   email: 'tiagoramada.dev@gmail.com',
   location: 'Portugal',
   availability: 'Open to opportunities',
@@ -10,13 +10,13 @@ export const personal = {
     linkedin: 'https://www.linkedin.com',
   },
   about: [
-    "I'm a software engineer based in Portugal with a focus on building clean, performant web applications. I care about writing code that's maintainable, accessible, and solves real problems — not just code that works.",
-    "My background spans frontend development with React and modern JavaScript, backend work with Node.js, and infrastructure tooling. I enjoy the full picture — from pixel-level UI details to deployment pipelines.",
-    "When I'm not coding, I'm usually exploring new technologies, contributing to side projects, or refining my understanding of software architecture and design patterns.",
+    "I'm a software engineering student at the Polytechnic Institute of Setúbal, with three years of professional experience gained at a Swedish IT company - where I started writing PowerShell automation while still in secondary school.",
+    "I work across the stack: Angular and .NET for building applications, PowerShell and Windows Server for infrastructure. My most recent project, EasyClinic, is a full clinic management platform with role-based access, an automated scheduling engine, and a containerised CI/CD pipeline.",
+    "I'm currently finishing my degree and open to internships and junior full-stack roles.",
   ],
   stats: [
-    { value: '5+', label: 'Years Learning & Building' },
-    { value: '10+', label: 'Projects Shipped' },
-    { value: '∞', label: 'Curiosity' },
+    { value: '3+', label: 'Professional Experience' },
+    { value: '5', label: 'Projects Shipped' },
+    { value: '1', label: 'Live in Production' },
   ],
 };

@@ -1,23 +1,24 @@
 export const experience = [
   {
-    role: 'Freelance Frontend Developer',
-    company: 'Self-employed',
-    period: '2025 — Present',
-    description: 'Delivering performant React interfaces, design systems, and accessible web experiences for clients. Focused on clean architecture and modern tooling.',
-    tech: ['React', 'CSS', 'Accessibility', 'Vite'],
-  },
-  {
     role: "Software Engineering — Bachelor's Degree",
-    company: 'University',
+    company: 'Polytechnic Institute of Setúbal',
     period: '2022 — Present',
     description: 'Building strong foundations in algorithms, data structures, software architecture, and systems design.',
     tech: ['Java', 'Algorithms', 'Architecture', 'Databases'],
   },
   {
+    role: 'Software Developer Intern',
+    company: 'Mutega AB',
+    period: '2020 — 2023',
+    description: 'PowerShell automation for Active Directory, Windows Server and SCCM deployment, an Android app shipped end to end, and hardware migrations. Part-time and remote, alongside studies.',
+    tech: ['React', 'HTML5', 'CSS', 'JavaScript', 'PowerShell', 'Windows Server', 'SCCM', 'Android'],
+  },
+  {
     role: 'Comprehensive Programming Course',
-    company: 'Training Program',
+    company: 'Atec Training Academy',
     period: '2019 — 2022',
     description: 'Multi-language curriculum covering web technologies, scripting, and development tooling from the ground up.',
     tech: ['HTML', 'CSS', 'JavaScript', 'Python'],
   },
 ];
+  

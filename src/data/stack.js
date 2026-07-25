@@ -1,52 +1,71 @@
 import {
-  SiJavascript,
-  SiTypescript,
-  SiHtml5,
+  SiAngular,
   SiCss,
-  SiGnometerminal,
-  SiReact,
-  SiNodedotjs,
-  SiExpress,
-  SiVite,
-  SiGit,
-  SiGithub,
+  SiDotnet,
   SiDocker,
+  SiExpress,
+  SiGit,
+  SiGithubactions,
+  SiGnometerminal,
+  SiHtml5,
+  SiJavascript,
   SiLinux,
-  SiNpm,
+  SiNodedotjs,
+  SiReact,
+  SiSass,
+  SiTypescript,
 } from 'react-icons/si';
+
+import {
+  TbBrandCSharp,
+  TbBrandMysql,
+  TbDatabase,
+  TbSql,
+} from 'react-icons/tb';
 
 export const stack = [
   {
     category: 'Languages',
     items: [
-      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'C#', icon: TbBrandCSharp },
       { name: 'TypeScript', icon: SiTypescript },
-      { name: 'HTML5', icon: SiHtml5 },
-      { name: 'CSS3', icon: SiCss },
+      { name: 'JavaScript', icon: SiJavascript },
+      { name: 'SQL', icon: TbSql },
       { name: 'PowerShell', icon: SiGnometerminal },
     ],
   },
   {
-    category: 'Frameworks',
+    category: 'Backend',
     items: [
-      { name: 'React', icon: SiReact },
+      { name: '.NET Core', icon: SiDotnet },
+      { name: 'Entity Framework', icon: TbDatabase },
       { name: 'Node.js', icon: SiNodedotjs },
       { name: 'Express', icon: SiExpress },
-      { name: 'Vite', icon: SiVite },
     ],
   },
   {
-    category: 'Tools',
+    category: 'Frontend',
     items: [
-      { name: 'Git', icon: SiGit },
-      { name: 'GitHub', icon: SiGithub },
-      { name: 'npm', icon: SiNpm },
+      { name: 'Angular', icon: SiAngular },
+      { name: 'React', icon: SiReact },
+      { name: 'SCSS', icon: SiSass },
+      { name: 'HTML5', icon: SiHtml5 },
+      { name: 'CSS3', icon: SiCss },
     ],
   },
   {
-    category: 'Cloud & Infra',
+    category: 'Data',
+    items: [
+      { name: 'SQL Server', icon: TbDatabase },
+      { name: 'MySQL', icon: TbBrandMysql },
+    ],
+  },
+  {
+    category: 'DevOps',
     items: [
       { name: 'Docker', icon: SiDocker },
+      { name: 'GitHub Actions', icon: SiGithubactions },
+      { name: 'Git', icon: SiGit },
       { name: 'Linux', icon: SiLinux },
     ],
   },
